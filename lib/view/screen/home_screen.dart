@@ -21,12 +21,7 @@ class HomeScreen extends StatelessWidget {
               Stack(
                 alignment: Alignment.bottomRight,
                 children: [
-                  Container(
-                    width: double.infinity,
-                    child: Image.asset('assets/images/1789.jpg',
-                    ),
-                  ),
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     child: Image.asset('assets/images/1789.jpg',
                     ),
@@ -65,7 +60,7 @@ class HomeScreen extends StatelessWidget {
 
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                     Text(
                       '14جمادي اولي 1443',
                       style: TextStyle(
                           color: Colors.white,
@@ -103,13 +98,13 @@ class HomeScreen extends StatelessWidget {
             mainAxisSpacing: 0.9,
             crossAxisCount: 3,
             children: <Widget>[
-              buildItem(lable: 'القرآن الكريم', url: 'assets/images/quran.png'),
-              buildItem(lable: 'التسبيح', url: 'assets/images/tasbih.png',),
-              buildItem(lable: 'دعاء', url: 'assets/images/pray.png',),
-              buildItem(lable: 'القبلة', url: 'assets/images/kaaba.png',),
-              buildItem(lable: 'مواقية الصلاة', url: 'assets/images/prayer-mat.png',),
-              buildItem(lable: 'اذكار', url: 'assets/images/moon.png',),
-              buildItem(lable: 'حساب الزكاة', url: 'assets/images/money-bag.png',),
+              buildItem(lable: 'القرآن الكريم', url: 'assets/images/quran.png',screen: '',context: context),
+              buildItem(lable: 'التسبيح', url: 'assets/images/tasbih.png',screen: '',context: context),
+              buildItem(lable: 'دعاء', url: 'assets/images/pray.png',screen: '',context: context),
+              buildItem(lable: 'القبلة', url: 'assets/images/kaaba.png',screen: '',context: context),
+              buildItem(lable: 'مواقية الصلاة', url: 'assets/images/prayer-mat.png',screen: '',context: context),
+              buildItem(lable: 'اذكار', url: 'assets/images/moon.png',screen: 'AthkarScreen',context: context),
+              buildItem(lable: 'حساب الزكاة', url: 'assets/images/money-bag.png',screen: '',context: context),
             ],
           ),
         ),
@@ -121,11 +116,12 @@ class HomeScreen extends StatelessWidget {
     required String lable,
     required String url,
     Function? onTap,
+    context,
+    String? screen,
   }){
     return InkWell(
-      onTap: (){
-        onTap;
-        // Navigator.push(context, MaterialPageRoute(builder: (context)=> QuranListPage()));
+      onTap: () {
+        Navigator.pushNamed(context, screen!);
       },
       child: Container(
         padding: const EdgeInsets.all(8),

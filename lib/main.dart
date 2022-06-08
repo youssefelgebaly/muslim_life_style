@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mslim_life_style/view/screen/athkar/athkar_screen.dart';
 import 'package:mslim_life_style/view/screen/main_page.dart';
 
 void main() {
@@ -11,7 +12,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    debugInvertOversizedImages = true;
+
+    debugInvertOversizedImages = false;
+
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -20,6 +23,9 @@ class MyApp extends StatelessWidget {
           textDirection: TextDirection.rtl,
           child: child!,
         );
+      },
+      routes: {
+        'AthkarScreen': (BuildContext context) => AthkarScreen(),
       },
       theme: ThemeData(
         brightness: Brightness.light,
