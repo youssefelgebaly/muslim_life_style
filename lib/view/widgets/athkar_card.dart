@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mslim_life_style/model/athkar_model.dart';
+import 'package:mslim_life_style/model/athkar/athkar_model.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 class AthkarCard extends StatelessWidget {
   final AthkarModel? athkarModel;
