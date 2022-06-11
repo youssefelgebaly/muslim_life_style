@@ -33,13 +33,13 @@ class MyApp extends StatelessWidget {
         tabBarTheme: const TabBarTheme(
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
-
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedItemColor: Colors.green,
           unselectedItemColor: Colors.grey,
         ),
       ),
+
       home: MainPage(),
     );
   }
