@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mslim_life_style/view/screen/athkar/athkar_screen.dart';
 import 'package:mslim_life_style/view/screen/main_page.dart';
+import 'package:mslim_life_style/view/screen/tasbih/tasbih_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         );
       },
       routes: {
-        'AthkarScreen': (BuildContext context) => AthkarScreen(),
+        'AthkarScreen': (BuildContext context) => const AthkarScreen(),
+        'TasbihScreen': (BuildContext context) => const TasbihScreen(),
       },
       theme: ThemeData(
         brightness: Brightness.light,
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }
