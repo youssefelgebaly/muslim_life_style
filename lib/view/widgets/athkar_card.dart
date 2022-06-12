@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mslim_life_style/model/athkar/athkar_model.dart';
+import 'package:mslim_life_style/view/widgets/circularPercentIndicator_custom.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../model/athkar/athkar_by_category.dart';
@@ -91,9 +92,15 @@ class _AthkarCardState extends State<AthkarCard> {
                              icon: const Icon(Icons.copy),
                            ),
                          ),
-                         Expanded(child: builtCircularPercentIndicator(
-                             percent: percent, counter: int.parse(model
-                             .count))),
+                         Expanded(
+                           child: InkWell(
+                             onTap: () {
+                               setState(() {
+                                 incrementCounter(counter: int.parse(model.count));
+                               });
+                             },
+                               child: CircularPercentIndicatorCustom(percent: percent, counter: int.parse(model.count),fontSize: 14,)),
+                         ),
                          Expanded(
                            child: IconButton(
                              onPressed: () {},

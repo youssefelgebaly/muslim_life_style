@@ -1,35 +1,47 @@
-class Tasbih {
-  final int id;
-  final String name;
-  final int counter;
-  final int favorite;
+import 'package:mslim_life_style/model/tasbih/tasbih_list.dart';
 
-  Tasbih({
-    required this.id,
-    required this.name,
-    required this.counter,
-    required this.favorite,
-  });
+class TasbihModel {
+  String? category;
+  String? count;
+  String? description;
+  String? reference;
+  String? content;
+
+  TasbihModel(
+      {this.category,
+        this.count,
+        this.description,
+        this.reference,
+        this.content});
+
+  TasbihModel.fromJson(Map<String, dynamic> json) {
+    category = json['category'];
+    count = json['count'];
+    description = json['description'];
+    reference = json['reference'];
+    content = json['content'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['category'] = category;
+    data['count'] = count;
+    data['description'] = description;
+    data['reference'] = reference;
+    data['content'] = content;
+    return data;
+  }
 }
 
 class Tasbihs {
-  final List<Tasbih> _tasbihs = [];
+  final List<TasbihModel> _tasbihs = [];
 
-  void initializeData(List<Map<String, Object?>> datas) {
-    for (final Map<String, Object?> data in datas) {
-      _tasbihs.add(
-        Tasbih(
-          id: data['id'] as int,
-          name: data['name'].toString(),
-          counter: data['counter'] as int,
-          favorite: data['favorite'] as int,
-        ),
-      );
-    }
+  void initializeData() {
+    return allTasbih
+        .forEach((element) => _tasbihs.add(
+              TasbihModel.fromJson(element),
+    ));
+
   }
-
-  List<Tasbih> get tasbihs => _tasbihs;
-
-  List<Tasbih> get getFavoritesTasbih =>
-      _tasbihs.where((Tasbih tasbih) => tasbih.favorite == 1).toList();
+  List<TasbihModel> get tasbihs => _tasbihs;
 }
