@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               buildItem(lable: 'القرآن الكريم', url: 'assets/images/quran.png',screen: '',context: context),
               buildItem(lable: 'التسبيح', url: 'assets/images/tasbih.png',screen: 'TasbihScreen',context: context),
-              buildItem(lable: 'دعاء', url: 'assets/images/pray.png',screen: '',context: context),
+              buildItem(lable: 'دعاء', url: 'assets/images/pray.png',screen: 'DuaScreen',context: context),
               buildItem(lable: 'القبلة', url: 'assets/images/kaaba.png',screen: '',context: context),
               buildItem(lable: 'مواقية الصلاة', url: 'assets/images/prayer-mat.png',screen: '',context: context),
               buildItem(lable: 'اذكار', url: 'assets/images/moon.png',screen: 'AthkarScreen',context: context),

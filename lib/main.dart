@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mslim_life_style/view/screen/Dau/dua_screen.dart';
 import 'package:mslim_life_style/view/screen/athkar/athkar_screen.dart';
 import 'package:mslim_life_style/view/screen/main_page.dart';
 import 'package:mslim_life_style/view/screen/tasbih/tasbih_screen.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'AthkarScreen': (BuildContext context) => const AthkarScreen(),
         'TasbihScreen': (BuildContext context) => const TasbihScreen(),
+        'DuaScreen': (BuildContext context) =>  DuaScreen(),
       },
       theme: ThemeData(
         brightness: Brightness.light,
