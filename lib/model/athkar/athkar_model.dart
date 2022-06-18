@@ -1,3 +1,5 @@
+import 'athkar_list.dart';
+
 class AthkarModel {
   final String category;
   final String count;
@@ -32,4 +34,23 @@ class AthkarModel {
   String toString() {
     return 'Azkar(category: $category, count: $count, description: $description, reference: $reference, zekr: $zekr)';
   }
+
+}
+
+class AthkarByCategory {
+  final List<AthkarModel> _azkarList = [];
+
+  getAthkarByCategory(String category) {
+    return allAthkar
+        .where(
+          (element) => element.containsValue(category),
+    )
+        .forEach(
+          (element) => _azkarList.add(
+        AthkarModel.fromJson(element),
+      ),
+    );
+  }
+
+  List<AthkarModel> get azkarList => _azkarList;
 }

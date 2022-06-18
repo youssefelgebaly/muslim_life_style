@@ -19,7 +19,7 @@ class AthkarCubit extends Cubit<AthkarStates> {
   //   list.map((e) => AthkarModel.fromJson(e)).toList();
   // }
 
-  final List<AthkarModel> azkarList = [];
+ // final List<AthkarModel> _azkarList = [];
   getAzkarByCategory(String category) {
     return allAthkar
         .where(
@@ -27,11 +27,12 @@ class AthkarCubit extends Cubit<AthkarStates> {
     )
         .forEach(
           (element) =>
-          azkarList.add(
-            AthkarModel.fromJson(element),
-          ),
+         athkarModel = AthkarModel.fromJson(element),
+
     );
   }
+  //List<AthkarModel> get azkarList => _azkarList;
+
 
 
   int _counter= 0;
