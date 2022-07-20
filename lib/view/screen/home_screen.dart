@@ -102,6 +102,7 @@ class HomeScreen extends StatelessWidget {
               buildItem(lable: 'التسبيح', url: 'assets/images/tasbih.png',screen: 'TasbihScreen',context: context),
               buildItem(lable: 'دعاء', url: 'assets/images/pray.png',screen: 'DuaScreen',context: context),
               buildItem(lable: 'القبلة', url: 'assets/images/kaaba.png',screen: '',context: context),
+              buildItem(lable: 'الاحديث النبوية', url: 'assets/images/muslim.png',screen: 'HadeethCategoriesScreen',context: context),
               buildItem(lable: 'مواقية الصلاة', url: 'assets/images/prayer-mat.png',screen: '',context: context),
               buildItem(lable: 'اذكار', url: 'assets/images/moon.png',screen: 'AthkarScreen',context: context),
               buildItem(lable: 'حساب الزكاة', url: 'assets/images/money-bag.png',screen: '',context: context),

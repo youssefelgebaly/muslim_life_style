@@ -35,17 +35,17 @@ class AthkarCubit extends Cubit<AthkarStates> {
 
 
 
-  int _counter= 0;
+  int count= 0;
   double percent=0;
 
   incrementCounter(
       {required int counter}
       ) {
     late double constNumber=1/counter;
-    if(_counter<counter) {
-      _counter++;
+    if(count<counter) {
+      count++;
       percent = percent+constNumber;
-      //percent=percent2;
+      return percent;
     }else{
       return null;
     }

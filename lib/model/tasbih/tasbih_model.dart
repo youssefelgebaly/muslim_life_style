@@ -37,8 +37,7 @@ class Tasbihs {
   final List<TasbihModel> _tasbihs = [];
 
   void initializeData() {
-    return allTasbih
-        .forEach((element) => _tasbihs.add(
+    return allTasbih.forEach((element) => _tasbihs.add(
               TasbihModel.fromJson(element),
     ));
 

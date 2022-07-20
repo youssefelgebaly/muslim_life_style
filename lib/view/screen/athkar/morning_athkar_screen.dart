@@ -11,8 +11,6 @@ class MorningAthkarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(shrinkWrap: true, children: const <Widget>[
-      AthkarCard(athkar: 'أذكار الصباح'),
-    ]);
+    return AthkarCard(athkar: 'أذكار الصباح');
   }
 }

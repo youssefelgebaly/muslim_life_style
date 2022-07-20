@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mslim_life_style/model/tasbih/tasbih_model.dart';
 import 'package:mslim_life_style/view/screen/tasbih/selected_tasbih_screen.dart';
 
+import '../../widgets/component.dart';
+
 class TasbihScreen extends StatefulWidget {
   const TasbihScreen({Key? key}) : super(key: key);
 
@@ -67,7 +69,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Theme.of(context).primaryColor,
+                        color: primaryColor,
                         width: 2,
                       ),
                     ),
@@ -75,7 +77,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
                       child: Text(
                         '${tasbihs.tasbihs[index].reference}',
                         style: TextStyle(
-                          color: Theme.of(context).primaryColor,
+                          color: primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -105,7 +107,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
                         '${tasbihs.tasbihs[index].count}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColor,
+                          color: primaryColor,
                         ),
                       ),
                       const Text(
