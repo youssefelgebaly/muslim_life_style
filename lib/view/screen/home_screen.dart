@@ -128,7 +128,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Column(
           children:  [
-            Image.asset('assets/images/quran.png',
+            Image.asset(url,
               width: 45,
               height: 45,
             ),
