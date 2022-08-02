@@ -1,31 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mslim_life_style/view/widgets/component.dart';
+import 'package:mslim_life_style/view/widgets/text_custom.dart';
 
-  IconData? iconData;
-  String? tittle;
-  Function? onPressed;
+PreferredSizeWidget appBarWidget(String title,BuildContext context) {
+  return AppBar(
+    iconTheme: const IconThemeData(
+      color: primaryColor,
+    ),
+    elevation: 0,
+    title: textCustom(text: title, context: context,color: kBlackColor,fontSize: 18),
 
-  appBarCustom({iconData = Icons.arrow_back_ios_rounded , leading = '', onPressed,}) {
-    return AppBar(
-      centerTitle: true,
-      leading: IconButton(
-        onPressed: () {
-          onPressed == null ? null : onPressed!();
-          // Navigator.pop(context);
-        },
-        icon: Icon(
-          iconData,
-          color: Colors.black,
-        ),
-      ),
-      title: Text(
-        leading!,
-        style: TextStyle(
-          fontSize: 20.sp,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ),
-      ),
-    );
-  }
-// }
+    centerTitle: true,
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+  );
+}

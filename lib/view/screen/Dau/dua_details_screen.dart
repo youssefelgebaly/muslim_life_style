@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mslim_life_style/view/widgets/component.dart';
+import 'package:mslim_life_style/view/widgets/text_custom.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../../model/athkar/athkar_model.dart';
@@ -65,21 +66,17 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
             ),
             child: Column(
                 children: [
-                  Text(model.zekr,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Uthman',
-                      color: Colors.black,
-                    ),
-                  ),
+
+                  textCustom(text: model.zekr, context: context,color: textColor,fontSize: 20),
 
                   const Divider(),
-                  Text(
-                    model.description,
-                    style: const TextStyle(
-                      color: Colors.black45,
-                    ),
-                  ),
+                  textCustom(text:  model.description, context: context),
+                  // Text(
+                  //   model.description,
+                  //   style: const TextStyle(
+                  //     color: Colors.black45,
+                  //   ),
+                  // ),
 
                   Row(
                     children: [

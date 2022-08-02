@@ -9,7 +9,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final _screens =[
-    const HomeScreen(),
+     HomeScreen(),
     const Scaffold(body: Center(child: Text('Explore Screen'),),)
   ];
 

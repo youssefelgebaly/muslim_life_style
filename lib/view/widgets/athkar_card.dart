@@ -37,6 +37,7 @@ class AthkarCard extends StatelessWidget {
                                   'assets/images/paperBackground.jpg'),
                               fit: BoxFit.cover,
                             ),
+
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.7),
@@ -53,7 +54,10 @@ class AthkarCard extends StatelessWidget {
                             children: [
                               Text(
                                 athkarByCategory.azkarList[index].zekr,
+
                                 style: const TextStyle(
+                                    fontFamily:'CairoRegular' ,
+
                                     fontSize: 17, fontWeight: FontWeight.bold),
                               ),
                               const Divider(),

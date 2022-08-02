@@ -11,3 +11,20 @@ class GetHadeethCategoriesErrorState extends HadeethStates {
 
   GetHadeethCategoriesErrorState(this.error);
 }
+
+class GetHadethLoading extends HadeethStates {}
+class GetHadethSuccessState extends HadeethStates {}
+class GetHadethErrorState extends HadeethStates {
+  final String error;
+
+  GetHadethErrorState(this.error);
+}
+
+
+class GetHadethDetailsLoadingState extends HadeethStates {}
+class GetHadethDetailsSuccessState extends HadeethStates {}
+class GetHadethDetailsErrorState extends HadeethStates {
+  final String error;
+
+  GetHadethDetailsErrorState(this.error);
+}
