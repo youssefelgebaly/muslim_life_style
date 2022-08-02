@@ -31,11 +31,11 @@ class CircularPercentIndicatorCustom extends StatelessWidget {
                 color: Colors.green,
               )
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 65.0),
+          const Padding(
+            padding: EdgeInsets.only(right: 65.0),
             child: Text(
                 '/100',
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 16
                 )
             ),

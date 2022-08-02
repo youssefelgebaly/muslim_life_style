@@ -1,2 +1,2 @@
-const String baseUrl = 'https://hadeethenc.com/api/v1/';
+const String baseUrl = 'https://';
 

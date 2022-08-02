@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/services.dart' as rootBundle;
 import 'package:mslim_life_style/model/athkar/athkar_model.dart';
 
 import '../../model/athkar/athkar_list.dart';
@@ -18,35 +16,28 @@ class AthkarCubit extends Cubit<AthkarStates> {
   //   final list = json.decode(jsonData) as List<dynamic>;
   //   list.map((e) => AthkarModel.fromJson(e)).toList();
   // }
-
- // final List<AthkarModel> _azkarList = [];
+  // final List<AthkarModel> _azkarList = [];
   getAzkarByCategory(String category) {
     return allAthkar
         .where(
           (element) => element.containsValue(category),
-    )
+        )
         .forEach(
-          (element) =>
-         athkarModel = AthkarModel.fromJson(element),
-
-    );
+          (element) => athkarModel = AthkarModel.fromJson(element),
+        );
   }
   //List<AthkarModel> get azkarList => _azkarList;
 
+  int count = 0;
+  double percent = 0;
 
-
-  int count= 0;
-  double percent=0;
-
-  incrementCounter(
-      {required int counter}
-      ) {
-    late double constNumber=1/counter;
-    if(count<counter) {
+  incrementCounter({required int counter}) {
+    late double constNumber = 1 / counter;
+    if (count < counter) {
       count++;
-      percent = percent+constNumber;
+      percent = percent + constNumber;
       return percent;
-    }else{
+    } else {
       return null;
     }
   }

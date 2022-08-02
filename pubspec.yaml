@@ -29,18 +29,31 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_localizations: # Add this line
+    sdk: flutter         # Add this line
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   adhan: ^2.0.0-nullsafety.2
   percent_indicator: ^3.4.0
-  flutter_bloc:
-  bloc:
+  flutter_bloc: ^8.0.1
+  bloc: ^8.0.3
   conditional_builder_null_safety: ^0.0.6
-  flutter_screenutil: ^5.1.1
+  flutter_screenutil: ^5.5.3+2
   dio:
+  quran: ^1.1.2
+  backdrop: ^0.7.2
+  lottie:
+  flutter_svg:
+  flutter_qiblah: ^2.0.2
+  intl: ^0.17.0
+  location: ^4.2.0
+  device_info:
+  fluttertoast:
+  shared_preferences: ^2.0.15
+  hijri_picker: ^3.0.0
+
 
 
 
@@ -70,9 +83,26 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
-    - assets/muslim-people-lifestyle.json
-  #   - images/a_dot_ham.jpeg
+     - assets/images/
+     - assets/muslim-people-lifestyle.json
+     - assets/surah.json
+     - assets/kiblat_lingkar.svg
+     - assets/kiblat_needle.svg
+     - assets/jsonfile/
+     - assets/fonts/
+
+  fonts:
+    - family: ElMessiri
+      fonts:
+        - asset: assets/fonts/ElMessiri-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/ElMessiri-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/ElMessiri-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/ElMessiri-Regular.ttf
+          weight: 400
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
