@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 Future<bool?> showToast({required String message, Color color = Colors.green}) {
@@ -12,7 +11,7 @@ Future<bool?> showToast({required String message, Color color = Colors.green}) {
     timeInSecForIosWeb: 1,
     backgroundColor: color,
     textColor: Colors.white,
-    fontSize: 16.0.sp,
+    fontSize: 16.0,
   );
 }
 

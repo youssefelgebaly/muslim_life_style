@@ -45,25 +45,31 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
         children: athkarByCategory.azkarList.map((model){
           return Container(
             width: double.infinity,
-            margin: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 5
-            ),
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 16,
-            ),
+            padding: EdgeInsets.all(15),
+            margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[300]!,
-                  offset: Offset(0.6, 1.2), //(x,y)
-                  blurRadius: 6.0,
-                ),
-              ],
-              color: Colors.white,
-            ),
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(color: primaryColor, width: 1)),
+            // margin: const EdgeInsets.symmetric(
+            //     horizontal: 8,
+            //     vertical: 5
+            // ),
+            // padding: const EdgeInsets.symmetric(
+            //   horizontal: 16,
+            //   vertical: 16,
+            // ),
+            // decoration: BoxDecoration(
+            //   borderRadius: BorderRadius.circular(16.0),
+            //   boxShadow: [
+            //     BoxShadow(
+            //       color: Colors.grey[300]!,
+            //       offset: Offset(0.6, 1.2), //(x,y)
+            //       blurRadius: 6.0,
+            //     ),
+            //   ],
+            //   color: Colors.white,
+            // ),
             child: Column(
                 children: [
 

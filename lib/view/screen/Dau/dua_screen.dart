@@ -18,7 +18,8 @@ class DuaScreen extends StatelessWidget {
         backgroundColor: Colors.grey.shade50,
         elevation: 0,
       ),
-      body: ListView.builder(itemBuilder: (context, index) => _buildListItem(context, index) ,
+      body: ListView.builder(          physics: BouncingScrollPhysics(),
+        itemBuilder: (context, index) => _buildListItem(context, index) ,
           itemCount: athkarDataList.length,
       ),
     );

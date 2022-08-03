@@ -1,12 +1,18 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mslim_life_style/view/screen/Dau/dua_screen.dart';
 import 'package:mslim_life_style/view/screen/athkar/athkar_screen.dart';
 import 'package:mslim_life_style/view/screen/hadeeth/hadeeth_categories_screen.dart';
+import 'package:mslim_life_style/view/screen/home_screen.dart';
 import 'package:mslim_life_style/view/screen/main_page.dart';
 import 'package:mslim_life_style/view/screen/prayer_times/prayer_times_screen.dart';
 import 'package:mslim_life_style/view/screen/qibla/qibla_screen.dart';
+import 'package:mslim_life_style/view/screen/quran/home.dart';
 import 'package:mslim_life_style/view/screen/tasbih/tasbih_screen.dart';
+import 'package:mslim_life_style/view/screen/zakah/zakah_screen.dart';
 import 'controller/database/network/dio_helper.dart';
 import 'controller/hadeeth_bloc/hadeeth_cubit.dart';
 import 'controller/observer.dart';
@@ -61,6 +67,8 @@ class MyApp extends StatelessWidget {
           'HadeethCategoriesScreen': (BuildContext context) => const HadeethCategoriesScreen(),
           'QiblaScreen': (BuildContext context) =>  QiblaScreen(),
           'PrayerTimesScreen': (BuildContext context) => PrayerTimesScreen(),
+          'ZakahScreen': (BuildContext context) => ZakahScreen(),
+          'QuranScreen': (BuildContext context) => QuranScreen(),
         },
         theme: ThemeData(
           brightness: Brightness.light,
@@ -74,8 +82,53 @@ class MyApp extends StatelessWidget {
             unselectedItemColor: Colors.grey,
           ),
         ),
-        home: const MainPage(),
+        home: const MyHomePage(),
       ),
     );
   }
 }
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() {
+    Timer(const Duration(seconds: 4), openOnBoard);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: SizedBox(
+          height: 300,
+          child: Lottie.asset('assets/muslim-people-lifestyle.json',
+
+          ),
+        ),
+      ),
+    );
+  }
+
+  void openOnBoard() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context)=>const MainPage(),
+      ),
+          (route)
+      {
+        return false;
+      },
+    );
+  }
+}
+

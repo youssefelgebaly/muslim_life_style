@@ -40,7 +40,6 @@ dependencies:
   flutter_bloc: ^8.0.1
   bloc: ^8.0.3
   conditional_builder_null_safety: ^0.0.6
-  flutter_screenutil: ^5.5.3+2
   dio:
   quran: ^1.1.2
   backdrop: ^0.7.2
@@ -53,6 +52,7 @@ dependencies:
   fluttertoast:
   shared_preferences: ^2.0.15
   hijri_picker: ^3.0.0
+  google_fonts:
 
 
 
@@ -102,7 +102,14 @@ flutter:
           weight: 500
         - asset: assets/fonts/ElMessiri-Regular.ttf
           weight: 400
-
+        - asset: assets/fonts/aldhabi.ttf
+          weight: 400
+        - asset: assets/fonts/kitab.ttf
+          weight: 400
+        - asset: assets/fonts/NotoNastaliqUrdu-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/NotoNastaliqUrdu-Regular.ttf
+          weight: 400
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
