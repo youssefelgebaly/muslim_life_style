@@ -1,37 +1,26 @@
+import 'dart:convert';
+
 class Surah {
-  String? place;
-  String? type;
-  int? count;
-  String? title;
-  String? titleAr;
-  String? index;
-  int? pages;
-  int? pageIndex;
-  String? juzIndex;
-
-  Surah(
-      {this.place,
-        this.type,
-        this.count,
-        this.title,
-        this.titleAr,
-        this.index,
-        this.pages,
-        this.pageIndex,
-        this.juzIndex});
-
-  factory Surah.fromJson(Map<String, dynamic> json) {
-    return Surah(
-      place: json['place'] as String,
-      type: json['type'] as String,
-      count: json['count'] as int,
-      title: json['title'] as String,
-      titleAr: json['titleAr'] as String,
-      index: json['index'] as String,
-      // reversed pages
-      pages: 569 - int.parse(json['pages']),
-      pageIndex: int.parse(json['pages']),
-      juzIndex: json['juzIndex'] as String,
-    );
-  }
+  int id;
+  String revelationPlace;
+  int revelationOrder;
+  String name;
+  String arabicName;
+  int versesCount;
+  Surah({
+    required this.arabicName,
+    required this.id,
+    required this.name,
+    required this.revelationOrder,
+    required this.revelationPlace,
+    required this.versesCount,
+  });
+  factory Surah.fromMap(Map<String, dynamic> json) => Surah(
+    arabicName: json["name_arabic"],
+    id: json["id"],
+    name: json["name_simple"],
+    revelationOrder: json["revelation_order"],
+    revelationPlace: json["revelation_place"],
+    versesCount: json["verses_count"],
+  );
 }

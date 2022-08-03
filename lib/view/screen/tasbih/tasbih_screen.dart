@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mslim_life_style/model/tasbih/tasbih_model.dart';
 import 'package:mslim_life_style/view/screen/tasbih/selected_tasbih_screen.dart';
+import 'package:mslim_life_style/view/widgets/text_custom.dart';
 
 import '../../widgets/component.dart';
 
@@ -33,9 +34,14 @@ class _TasbihScreenState extends State<TasbihScreen> {
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) =>  InkWell(
+        itemBuilder: (context, index) => InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) =>  SelectedTasbihScreen(tasbihModel: tasbihs.tasbihs[index],)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SelectedTasbihScreen(
+                          tasbihModel: tasbihs.tasbihs[index],
+                        )));
           },
           child: Padding(
             padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
@@ -87,16 +93,15 @@ class _TasbihScreenState extends State<TasbihScreen> {
                     width: 20,
                   ),
                   Expanded(
-                    child: Text(
-                      '${tasbihs.tasbihs[index].content}',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6!
-                          .copyWith(fontFamily: 'Uthman'),
-                    ),
-                  ),
+                      child: textCustom(
+                          text: '${tasbihs.tasbihs[index].content}',
+                          context: context,
+                          color: textColor,
+                          fontSize: 14,
+                      )
+
+
+                      ),
                   const SizedBox(
                     width: 20,
                   ),
@@ -127,8 +132,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
           ),
         ),
         itemCount: tasbihs.tasbihs.length,
-      ),);
-
-
+      ),
+    );
   }
 }
