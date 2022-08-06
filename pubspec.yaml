@@ -53,10 +53,18 @@ dependencies:
   shared_preferences: ^2.0.15
   hijri_picker: ^3.0.0
   google_fonts:
+  flutter_share: ^2.0.0
+  flutter_countdown_timer: ^4.1.0
+  flutter_launcher_icons: ^0.9.2
+  url_launcher: ^6.1.5
+  launch_review: ^3.0.1
 
 
 
-
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
 
 
 dev_dependencies:
@@ -86,6 +94,7 @@ flutter:
      - assets/images/
      - assets/muslim-people-lifestyle.json
      - assets/surah.json
+     - assets/logo.jpg
      - assets/kiblat_lingkar.svg
      - assets/kiblat_needle.svg
      - assets/jsonfile/

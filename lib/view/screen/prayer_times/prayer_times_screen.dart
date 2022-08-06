@@ -3,6 +3,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mslim_life_style/controller/layout_bloc/layout_cubit.dart';
 import 'package:mslim_life_style/controller/layout_bloc/layout_states.dart';
 import 'package:mslim_life_style/view/widgets/component.dart';
@@ -45,30 +46,33 @@ class PrayerTimesScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.all(10),
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            image:const DecorationImage(
-                              image: AssetImage('assets/images/1789.jpg',),
-                              fit: BoxFit.fill
-                            ),
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: primaryColor, width: 1)
-                          ),
-                          child:Column(
-                            children: [
-                              textCustom(
-                                  text: _today.fullDate(),
-                                  context: context,
-                                  color: textColor,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            ],
-                          ) ,
-                        ),
+                        child: Lottie.asset('assets/jsonfile/payer_times.json')
+                        
+                        
+                        // Container(
+                        //   padding: const EdgeInsets.all(10),
+                        //   margin: const EdgeInsets.all(10),
+                        //   width: double.infinity,
+                        //   decoration: BoxDecoration(
+                        //     image:const DecorationImage(
+                        //       image: AssetImage('assets/images/1789.jpg',),
+                        //       fit: BoxFit.fill
+                        //     ),
+                        //     color: Colors.grey[200],
+                        //     borderRadius: BorderRadius.circular(15),
+                        //       border: Border.all(color: primaryColor, width: 1)
+                        //   ),
+                        //   child:Column(
+                        //     children: [
+                        //       textCustom(
+                        //           text: _today.fullDate(),
+                        //           context: context,
+                        //           color: textColor,
+                        //           fontSize: 20,
+                        //           fontWeight: FontWeight.bold),
+                        //     ],
+                        //   ) ,
+                        // ),
                       ),
 
                       

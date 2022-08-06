@@ -43,7 +43,7 @@ class SurahPage extends StatelessWidget {
                             quran.getVerse(index, i, verseEndSymbol: false).trim()+
                             ' ',
                         style: TextStyle(
-                          fontFamily: 'ElMessiri',
+                          fontFamily: 'Aldhabi',
                           fontSize: 25,
                           color: Colors.black87,
                         ),

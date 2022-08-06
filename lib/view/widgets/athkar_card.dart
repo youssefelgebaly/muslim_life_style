@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mslim_life_style/controller/athkar_bloc/athkar_cubit.dart';
 import 'package:mslim_life_style/controller/athkar_bloc/athkar_state.dart';
 import 'package:mslim_life_style/model/athkar/athkar_model.dart';
 import 'package:mslim_life_style/view/widgets/circularPercentIndicator_custom.dart';
+import 'package:mslim_life_style/view/widgets/components.dart';
+import 'package:mslim_life_style/view/widgets/text_custom.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import 'component.dart';
 
 class AthkarCard extends StatelessWidget {
 
@@ -12,6 +17,7 @@ class AthkarCard extends StatelessWidget {
   final String? athkar;
 
   AthkarByCategory athkarByCategory = AthkarByCategory();
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,36 +36,20 @@ class AthkarCard extends StatelessWidget {
                       const EdgeInsets.symmetric(
                           horizontal: 15.0, vertical: 10.0),
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: const DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/paperBackground.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.7),
-                                spreadRadius: 1,
-                                blurRadius: 9,
-                                offset:
-                                const Offset(0, 7), // changes position of shadow
-                              ),
-                            ]),
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(color: primaryColor,width: 1)
+                          ),
                         child: Padding(
                           padding: const EdgeInsets.only(
                               top: 20, bottom: 10, right: 20, left: 20),
                           child: Column(
                             children: [
-                              Text(
-                                athkarByCategory.azkarList[index].zekr,
+                              
+                              textCustom(text: athkarByCategory.azkarList[index].zekr, context: context,fontSize: 17, fontWeight: FontWeight.bold,wordSpacing: 4,color: textColor),
 
-                                style: const TextStyle(
-                                    fontFamily:'CairoRegular' ,
-
-                                    fontSize: 17, fontWeight: FontWeight.bold),
-                              ),
                               const Divider(),
                               Text(
                                 athkarByCategory.azkarList[index].description,
@@ -71,7 +61,10 @@ class AthkarCard extends StatelessWidget {
                                 children: [
                                   Expanded(
                                     child: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Clipboard.setData(ClipboardData(text: athkarByCategory.azkarList[index].zekr));
+                                        showToast(message: 'تم النسخ في الحافظة');
+                                      },
                                       icon: const Icon(Icons.copy),
                                     ),
                                   ),
@@ -80,15 +73,23 @@ class AthkarCard extends StatelessWidget {
                                       
                                     },
                                     child: Expanded(
-                                      child: circularPercentIndicator(counter:athkarByCategory.azkarList[index].count,
-                                        percent: cubit.percent,
-                                        count: cubit.count,
-                                      ),
+
+                                      child: Stack(children: [
+                                        textCustom(text: "${athkarByCategory.azkarList[index].count}", context: context,fontSize: 22,fontWeight: FontWeight.bold)
+                                      ],
+                                      )
+                                      
+                                      // circularPercentIndicator(counter:athkarByCategory.azkarList[index].count,
+                                      //   percent: cubit.percent,
+                                      //   count: cubit.count,
+                                      // ),
                                     ),
                                   ),
                                   Expanded(
                                     child: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        cubit.shareText(athkarByCategory.azkarList[index].zekr,'');
+                                      },
                                       icon: const Icon(Icons.share),
                                     ),
                                   ),

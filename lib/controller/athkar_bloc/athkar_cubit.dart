@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:mslim_life_style/model/athkar/athkar_model.dart';
 
 import '../../model/athkar/athkar_list.dart';
@@ -10,13 +11,6 @@ class AthkarCubit extends Cubit<AthkarStates> {
   static AthkarCubit get(context) => BlocProvider.of(context);
   AthkarModel? athkarModel;
 
-  // void readJsonData() async
-  // {
-  //   final jsonData = await rootBundle.rootBundle.loadString('assets/azkar.json');
-  //   final list = json.decode(jsonData) as List<dynamic>;
-  //   list.map((e) => AthkarModel.fromJson(e)).toList();
-  // }
-  // final List<AthkarModel> _azkarList = [];
   getAzkarByCategory(String category) {
     return allAthkar
         .where(
@@ -26,8 +20,18 @@ class AthkarCubit extends Cubit<AthkarStates> {
           (element) => athkarModel = AthkarModel.fromJson(element),
         );
   }
-  //List<AthkarModel> get azkarList => _azkarList;
 
+  Future<void> shareText(String link, String text) async {
+    // List<dynamic> docs = await DocumentsPicker.pickDocuments;
+    // if (docs == null || docs.isEmpty) return null;
+
+    await FlutterShare.share(
+      title: 'Example share',
+      text: text,
+      linkUrl: link,
+        chooserTitle: 'Example Chooser Title'
+    );
+  }
   int count = 0;
   double percent = 0;
 

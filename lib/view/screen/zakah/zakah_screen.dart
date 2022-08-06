@@ -21,7 +21,7 @@ class _ZakahScreenState extends State<ZakahScreen> {
 
   void calculateElzakah() {
     elnisab = double.parse(goldPrice.text) * (85);
-    showToast(message: ' $elnisabالنصاب: ');
+    showToast(message: '  النصاب : $elnisab');
     elzakah = (double.parse(moneySaved.text)/100)*2.50;
   }
 

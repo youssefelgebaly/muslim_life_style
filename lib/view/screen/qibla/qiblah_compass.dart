@@ -129,7 +129,7 @@ class QiblahCompassWidget extends StatelessWidget {
 
                 Container(
                   margin: EdgeInsets.all(10),
-                  child:textCustom(text: 'تحذير: حافظ علي وضع الهاتف افقي, قد تتسيي القطع المعدنية أو المجالات المغناطيسية في حدوث اخطاء', context: context,fontSize: 16)
+                  child:textCustom(text: 'تحذير: حافظ علي وضع الهاتف افقي, قد تتسبب القطع المعدنية أو المجالات المغناطيسية في حدوث اخطاء', context: context,fontSize: 16)
                 ),
 
               ],

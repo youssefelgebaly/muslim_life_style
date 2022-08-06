@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:mslim_life_style/view/widgets/component.dart';
 import 'package:mslim_life_style/view/widgets/text_custom.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../../model/athkar/athkar_model.dart';
+import '../../widgets/components.dart';
 
 class DuaDetailsScreen extends StatefulWidget {
   DuaDetailsScreen({required this.Athkar, Key? key}) : super(key: key);
@@ -19,6 +22,14 @@ class DuaDetailsScreen extends StatefulWidget {
 class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
   AthkarByCategory athkarByCategory =AthkarByCategory();
 
+  Future<void> shareText(String link, String text) async {
+    await FlutterShare.share(
+        title: 'Example share',
+        text: text,
+        linkUrl: link,
+        chooserTitle: 'Example Chooser Title'
+    );
+  }
   @override
   void initState() {
     athkarByCategory.getAthkarByCategory(widget.Athkar);
@@ -51,25 +62,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(color: primaryColor, width: 1)),
-            // margin: const EdgeInsets.symmetric(
-            //     horizontal: 8,
-            //     vertical: 5
-            // ),
-            // padding: const EdgeInsets.symmetric(
-            //   horizontal: 16,
-            //   vertical: 16,
-            // ),
-            // decoration: BoxDecoration(
-            //   borderRadius: BorderRadius.circular(16.0),
-            //   boxShadow: [
-            //     BoxShadow(
-            //       color: Colors.grey[300]!,
-            //       offset: Offset(0.6, 1.2), //(x,y)
-            //       blurRadius: 6.0,
-            //     ),
-            //   ],
-            //   color: Colors.white,
-            // ),
+
             child: Column(
                 children: [
 
@@ -77,25 +70,26 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
 
                   const Divider(),
                   textCustom(text:  model.description, context: context),
-                  // Text(
-                  //   model.description,
-                  //   style: const TextStyle(
-                  //     color: Colors.black45,
-                  //   ),
-                  // ),
 
                   Row(
                     children: [
                       Expanded(
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Clipboard.setData(ClipboardData(text: model.zekr));
+                            showToast(message: 'تم النسخ في الحافظة');
+                          },
                           icon: const Icon(Icons.copy,color: primaryColor,),
                         ),
                       ),
 
                       Expanded(
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState((){
+                              shareText(model.zekr,'');
+                            });
+                          },
                           icon: const Icon(Icons.share,color: primaryColor,),
                         ),
                       ),

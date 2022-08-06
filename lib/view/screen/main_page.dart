@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mslim_life_style/view/screen/home_screen.dart';
+import 'package:mslim_life_style/view/screen/info_screen.dart';
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -10,7 +11,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final _screens =[
      HomeScreen(),
-    const Scaffold(body: Center(child: Text('Explore Screen'),),)
+     InfoScreen(),
   ];
 
   int _selectedIndex =0;
@@ -46,9 +47,9 @@ class _MainPageState extends State<MainPage> {
             activeIcon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            label: 'الاعدادات',
-            activeIcon: Icon(Icons.settings),
+            icon: Icon(Icons.info_outline),
+            label: 'معلومات',
+            activeIcon: Icon(Icons.info),
           ),
         ],
       ),
