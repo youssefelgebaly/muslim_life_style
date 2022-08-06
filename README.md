@@ -1,4 +1,4 @@
-# mslim_life_style
+# muslim_life_style
 
 A new Flutter project.
 
