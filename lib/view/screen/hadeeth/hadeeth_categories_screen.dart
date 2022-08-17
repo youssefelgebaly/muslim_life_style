@@ -22,12 +22,11 @@ class HadeethCategoriesScreen extends StatelessWidget {
           var cubit = HadeethCubit.get(context);
           return Scaffold(
             appBar: appBarWidget('موسوعة الحديث الشريف',  context),
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ConditionalBuilder(
-                  condition: cubit.categories.isNotEmpty,
-                  builder: (context) => Expanded(
+            body: ConditionalBuilder(
+              condition: cubit.categories.isNotEmpty,
+              builder: (context) => Column(
+                children: [
+                  Expanded(
                     child:GridView.count(
                       shrinkWrap: true,
                       primary: false,
@@ -46,12 +45,12 @@ class HadeethCategoriesScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  fallback: (context) => const Center(
-                      child: CircularProgressIndicator(
-                    color: green,
-                  )),
-                )
-              ],
+                ],
+              ),
+              fallback: (context) => const Center(
+                  child: CircularProgressIndicator(
+                color: green,
+              )),
             ),
           );
         },
@@ -89,14 +88,14 @@ class HadeethCategoriesScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children:  [
             //SizedBox(height: 15,),
-            Image.asset('$url',
+            Image.asset(url,
               width: 50,
               height: 50,
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             textCustom(text: lable, context: context,color: kBlackColor),
 
-            SizedBox(height: 5,),
+            const SizedBox(height: 5,),
             textCustom(text: '$count', context: context,fontWeight: FontWeight.bold),
 
 

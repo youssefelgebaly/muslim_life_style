@@ -12,6 +12,7 @@ class HadeethCubit extends Cubit<HadeethStates> {
 
   List<Map<String, dynamic>> categories = [];
   HadeethsCategoriesModel? hadeethsCategoriesModel;
+
   Future<void> getHadeethCategories() async {
     emit(GetHadeethCategoriesLoadingState());
     await DioHelper.getData(
@@ -29,10 +30,17 @@ class HadeethCubit extends Cubit<HadeethStates> {
       print(error.toString());
     });
   }
-  getHadeth({required String id}) {
+
+
+
+  getHadeth({required String id,required int page}) {
     emit(GetHadethLoading());
-    DioHelper.getData(url: 'hadeethenc.com/api/v1/hadeeths/list/?language=ar&category_id=$id&page=1&per_page=20').then((value) {
-      hadeethsCategoriesModel = HadeethsCategoriesModel.fromJson(value.data);
+    DioHelper.getData(
+            url:
+                'hadeethenc.com/api/v1/hadeeths/list/?language=ar&category_id=$id&page=$page&per_page=20')
+        .then((value) {
+     hadeethsCategoriesModel = HadeethsCategoriesModel.fromJson(value.data);
+
       print(hadeethsCategoriesModel!.data![0].title);
       emit(GetHadethSuccessState());
     }).catchError((error) {
@@ -41,10 +49,33 @@ class HadeethCubit extends Cubit<HadeethStates> {
     });
   }
 
+
+  // Future<dynamic> getCategoryCourses({
+  //   required String id,
+  // }) async {
+  //   coursesModel = CourseModel();
+  //   emit(GetCategoryCoursesStateLoading());
+  //   try {
+  //     final response = await DioHelper.getData(url:  'hadeethenc.com/api/v1/hadeeths/list/?language=ar&category_id=$id&page=$page&per_page=20');
+  //
+  //     // showToast(message: coursesModel!.message!);
+  //     emit(GetCategoryCoursesStateSuccess());
+  //     return coursesModel;
+  //   } on DioError catch (e) {
+  //     final errorMessage = DioExceptions.fromDioError(e).toString();
+  //     showToast(message: errorMessage, color: Colors.red);
+  //     emit(GetCategoryCoursesStateError(errorMessage));
+  //     throw errorMessage;
+  //   }
+  // }
+
   HadeethDetailsModel? hadeethDetailsModel;
+
   getHadethDetails({required String id}) {
     emit(GetHadethDetailsLoadingState());
-    DioHelper.getData(url: 'hadeethenc.com/api/v1/hadeeths/one/?language=ar&id=$id').then((value) {
+    DioHelper.getData(
+            url: 'hadeethenc.com/api/v1/hadeeths/one/?language=ar&id=$id')
+        .then((value) {
       hadeethDetailsModel = HadeethDetailsModel.fromJson(value.data);
       print(hadeethDetailsModel!.title);
       emit(GetHadethDetailsSuccessState());

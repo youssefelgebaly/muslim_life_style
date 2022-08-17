@@ -36,7 +36,7 @@ class AthkarCard extends StatelessWidget {
                       const EdgeInsets.symmetric(
                           horizontal: 15.0, vertical: 10.0),
                       child: Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: Colors.grey[200],
                               borderRadius: BorderRadius.circular(15),
@@ -68,22 +68,14 @@ class AthkarCard extends StatelessWidget {
                                       icon: const Icon(Icons.copy),
                                     ),
                                   ),
-                                  InkWell(
-                                    onTap: (){
-                                      
-                                    },
-                                    child: Expanded(
+                                  Expanded(
 
-                                      child: Stack(children: [
-                                        textCustom(text: "${athkarByCategory.azkarList[index].count}", context: context,fontSize: 22,fontWeight: FontWeight.bold)
-                                      ],
-                                      )
-                                      
-                                      // circularPercentIndicator(counter:athkarByCategory.azkarList[index].count,
-                                      //   percent: cubit.percent,
-                                      //   count: cubit.count,
-                                      // ),
-                                    ),
+                                    child: textCustom(text: athkarByCategory.azkarList[index].count, context: context,fontSize: 22,fontWeight: FontWeight.bold,textAlign: TextAlign.center)
+
+                                    // circularPercentIndicator(counter:athkarByCategory.azkarList[index].count,
+                                    //   percent: cubit.percent,
+                                    //   count: cubit.count,
+                                    // ),
                                   ),
                                   Expanded(
                                     child: IconButton(

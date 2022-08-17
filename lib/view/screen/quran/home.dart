@@ -2,12 +2,9 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mslim_life_style/view/screen/quran/reading_page.dart';
+import 'package:mslim_life_style/view/screen/quran/quran_view.dart';
 import 'package:mslim_life_style/view/widgets/component.dart';
 import 'package:mslim_life_style/view/widgets/text_custom.dart';
-import 'package:quran/quran.dart' as quran;
-import 'package:google_fonts/google_fonts.dart';
-
 import '../../../model/quran/quran_model.dart';
 
 class QuranScreen extends StatefulWidget {
@@ -31,8 +28,8 @@ class _QuranScreenState extends State<QuranScreen>
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/surah.json');
     final data = await json.decode(response);
-    for (var item in data["chapters"]) {
-      surahList.add(Surah.fromMap(item));
+    for (var item in data) {
+      surahList.add(Surah.fromJson(item));
     }
     debugPrint(surahList.length.toString());
     setState(() {});
@@ -44,12 +41,12 @@ class _QuranScreenState extends State<QuranScreen>
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
-        iconTheme: IconThemeData(color: textColor),
+        iconTheme: const IconThemeData(color: textColor),
         actions: [
           Transform.rotate(
             angle: isReverse ? pi : 2 * pi,
             child: IconButton(
-                icon: Icon(Icons.sort),
+                icon: const Icon(Icons.sort),
                 onPressed: () {
                   setState(() {
                     isReverse = !isReverse;
@@ -59,7 +56,7 @@ class _QuranScreenState extends State<QuranScreen>
         ],
       ),
       body: surahList.isEmpty
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child:  CircularProgressIndicator())
           : chaptersList(isReverse ? surahList.reversed.toList() : surahList),
     );
   }
@@ -70,24 +67,28 @@ class _QuranScreenState extends State<QuranScreen>
         itemCount: chapters.length,
         itemExtent: 80,
         itemBuilder: (BuildContext context, int index) => ListTile(
-            title:textCustom(text: chapters[index].arabicName.toString(),color: deepSeaGreenText, context: context,fontWeight: FontWeight.bold,fontSize: 14),
-            subtitle: Text(chapters[index].versesCount.toString()),
+            title:textCustom(text: chapters[index].titleAr.toString(),color: deepSeaGreenText, context: context,fontWeight: FontWeight.bold,fontSize: 14),
+            subtitle: Text(chapters[index].count.toString()),
             leading: Image(
                 image:
-                AssetImage("assets/images/${chapters[index].revelationPlace}.png"),
+                AssetImage("assets/images/${chapters[index].type}.png"),
                 width: 35,
                 height: 35),
             trailing:
             CircleAvatar(
               backgroundColor: deepSeaGreenText,
-                child: textCustom(text:"${ chapters[index].id}",color: textColorDrawer, context: context),),
+                child: textCustom(text:"${ chapters[index].index}",color: textColorDrawer, context: context),),
             onTap: () {
-              /// Push to Quran view ([int pages] represent surah page(reversed index))
+
+              print('page>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.${chapters[index].pages}');
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          SurahPage(surah: chapters[index]),));
+                         // SurahPage(surah: chapters[index]),
+                      QuranView(page: chapters[index].pages)
+                  ),
+              );
             }),
       );
 

@@ -12,12 +12,13 @@ import 'package:mslim_life_style/view/widgets/text_custom.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  @override
   final _today = HijriCalendar.now();
 
+  @override
   Widget build(BuildContext context) {
     HijriCalendar.setLocal('ar');
     return SingleChildScrollView(
+
       child: Column(
         children: [
           Stack(
@@ -75,8 +76,8 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Container(
-                                padding: EdgeInsets.all(20),
-                                margin: EdgeInsets.all(8),
+                                padding: const EdgeInsets.all(20),
+                                margin: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
                                   color: Colors.white.withOpacity(0.5),
                                   borderRadius: BorderRadius.circular(15),
@@ -102,8 +103,8 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Expanded(
                               child: Container(
-                                padding: EdgeInsets.all(20),
-                                margin: EdgeInsets.all(8),
+                                padding: const EdgeInsets.all(20),
+                                margin: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
                                   color: Colors.white.withOpacity(0.5),
                                   borderRadius: BorderRadius.circular(15),
@@ -118,14 +119,14 @@ class HomeScreen extends StatelessWidget {
                                         color: textColor,
                                         fontSize: 18),
                                     // textCustom(text: '${cubit.getPrayer()!}',color: deepSeaGreenText,fontWeight: FontWeight.bold, context: context)
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     CountdownTimer(
                                       endTime: cubit
                                           .getPrayer()!
                                           .millisecondsSinceEpoch,
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                         color: deepSeaGreenText,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 22,
@@ -177,7 +178,7 @@ class HomeScreen extends StatelessWidget {
             child: GridView.count(
               shrinkWrap: true,
               primary: false,
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 20),
               crossAxisSpacing: 0.9,
               mainAxisSpacing: 0.9,
               crossAxisCount: 2,
@@ -188,10 +189,11 @@ class HomeScreen extends StatelessWidget {
                     screen: 'QuranScreen',
                     context: context),
                 buildItem(
-                    lable: 'التسبيح',
-                    url: 'assets/images/tasbih.png',
-                    screen: 'TasbihScreen',
+                    lable: 'اذكار',
+                    url: 'assets/images/moon.png',
+                    screen: 'AthkarScreen',
                     context: context),
+
                 buildItem(
                     lable: 'دعاء',
                     url: 'assets/images/pray.png',
@@ -203,7 +205,7 @@ class HomeScreen extends StatelessWidget {
                     screen: 'QiblaScreen',
                     context: context),
                 buildItem(
-                    lable: ' الاحديث النبوية',
+                    lable: 'الاحديث النبوية',
                     url: 'assets/images/muslim.png',
                     screen: 'HadeethCategoriesScreen',
                     context: context),
@@ -213,9 +215,9 @@ class HomeScreen extends StatelessWidget {
                     screen: 'PrayerTimesScreen',
                     context: context),
                 buildItem(
-                    lable: 'اذكار',
-                    url: 'assets/images/moon.png',
-                    screen: 'AthkarScreen',
+                    lable: 'التسبيح',
+                    url: 'assets/images/tasbih.png',
+                    screen: 'TasbihScreen',
                     context: context),
                 buildItem(
                     lable: 'حساب الزكاة',
@@ -242,8 +244,8 @@ class HomeScreen extends StatelessWidget {
         Navigator.pushNamed(context, screen!);
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-        padding: const EdgeInsets.all(8),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+       //padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
@@ -259,7 +261,8 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //SizedBox(height: 15,),
+            //const SizedBox(height: 15,),
+
             Image.asset(
               url,
               width: 50,
@@ -268,8 +271,8 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            textCustom(text: lable, context: context, color: kBlackColor)
-          ],
+
+            textCustom(text: lable, context: context, color: kBlackColor)],
         ),
       ),
     );

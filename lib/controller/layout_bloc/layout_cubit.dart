@@ -1,8 +1,8 @@
 
 import 'package:adhan/adhan.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:location/location.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -118,5 +118,16 @@ class LayoutCubit extends Cubit<LayoutStates> {
     //
     //   }
 
+  }
+  Future<void> shareText(String link, String text) async {
+    // List<dynamic> docs = await DocumentsPicker.pickDocuments;
+    // if (docs == null || docs.isEmpty) return null;
+
+    await FlutterShare.share(
+        title: 'Example share',
+        text: text,
+        linkUrl: link,
+        chooserTitle: 'Example Chooser Title'
+    );
   }
 }

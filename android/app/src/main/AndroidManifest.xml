@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mslim_life_style">
    <application
-        android:label="حياة المسلم"
+        android:label="Muslim LS"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 

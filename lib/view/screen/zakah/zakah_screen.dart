@@ -40,7 +40,7 @@ class _ZakahScreenState extends State<ZakahScreen> {
         child: Form(
           key: formKey,
           child: ListView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
               Center(
@@ -109,7 +109,7 @@ class _ZakahScreenState extends State<ZakahScreen> {
                   hintText: 'المال المدخر',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
@@ -158,8 +158,8 @@ class _ZakahScreenState extends State<ZakahScreen> {
                 height: 15,
               ),
               Container(
-                padding: EdgeInsets.all(15),
-                margin: EdgeInsets.all(0),
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.all(0),
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(15),

@@ -29,16 +29,16 @@ class HedeethDetailsScreen extends StatelessWidget {
                 return  SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
                     child: Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         textDirection: TextDirection.rtl,
                         children: [
                           buildItemHadeeth(context: context,title: 'الحديث',iconData: Icons.text_fields_outlined),
 
-                          SizedBox(height: 10,),
+                          const SizedBox(height: 10,),
                           Container(
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                               color: Colors.grey[200],
                               borderRadius: BorderRadius.circular(15),
@@ -78,7 +78,7 @@ class HedeethDetailsScreen extends StatelessWidget {
                           ),
 
 
-                          Divider(
+                          const Divider(
                             height: 50,
                             thickness: 2,
                           ),
@@ -92,7 +92,7 @@ class HedeethDetailsScreen extends StatelessWidget {
                             fontSize: 20,
                             color: deepSeaGreenText
                           ),
-                          Divider(
+                          const Divider(
                             height: 50,
                             thickness: 2,
                           ),
@@ -105,7 +105,6 @@ class HedeethDetailsScreen extends StatelessWidget {
                             children: List.generate(
                               cubit.hadeethDetailsModel!.wordsMeanings!.length,
                                   (index) => Wrap(
-
                                 children: [
                                   textCustom(
                                     textAlign: TextAlign.start,
@@ -117,20 +116,20 @@ class HedeethDetailsScreen extends StatelessWidget {
 
                                   ),
 
-                                  Expanded(child:  textCustom(
+                                  textCustom(
                                       textAlign: TextAlign.start,
                                       context: context,
                                       text: cubit.hadeethDetailsModel!
                                           .wordsMeanings![index].meaning!,
                                       fontSize: 20,
                                       color: deepSeaGreenText
-                                  ),)
+                                  )
 
                                 ],
                               ),
                             ),
                           ),
-                          Divider(
+                          const Divider(
                             height: 50,
                             thickness: 2,
                           ),
@@ -152,7 +151,7 @@ class HedeethDetailsScreen extends StatelessWidget {
                           ),
 
 
-                          Divider(
+                          const Divider(
                             height: 20,
                             thickness: 2,
                           ),
@@ -189,7 +188,7 @@ class HedeethDetailsScreen extends StatelessWidget {
     return Row(
       children: [
         Icon(iconData,color:textColor ,),
-        SizedBox(width: 10,),
+        const SizedBox(width: 10,),
         textCustom(
           textAlign: TextAlign.center,
           context: context,

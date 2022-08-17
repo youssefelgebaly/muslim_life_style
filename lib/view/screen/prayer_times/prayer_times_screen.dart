@@ -40,45 +40,16 @@ class PrayerTimesScreen extends StatelessWidget {
                 params.madhab = Madhab.shafi;
                 late final prayerTimes =
                     PrayerTimes.today(myCoordinates, params);
-                return Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: Lottie.asset('assets/jsonfile/payer_times.json')
-                        
-                        
-                        // Container(
-                        //   padding: const EdgeInsets.all(10),
-                        //   margin: const EdgeInsets.all(10),
-                        //   width: double.infinity,
-                        //   decoration: BoxDecoration(
-                        //     image:const DecorationImage(
-                        //       image: AssetImage('assets/images/1789.jpg',),
-                        //       fit: BoxFit.fill
-                        //     ),
-                        //     color: Colors.grey[200],
-                        //     borderRadius: BorderRadius.circular(15),
-                        //       border: Border.all(color: primaryColor, width: 1)
-                        //   ),
-                        //   child:Column(
-                        //     children: [
-                        //       textCustom(
-                        //           text: _today.fullDate(),
-                        //           context: context,
-                        //           color: textColor,
-                        //           fontSize: 20,
-                        //           fontWeight: FontWeight.bold),
-                        //     ],
-                        //   ) ,
-                        // ),
-                      ),
+                return SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Lottie.asset('assets/jsonfile/payer_times.json'),
 
-                      
-                      Expanded(
-                        flex: 2,
-                        child: Container(
+                        
+                        Container(
                           padding: const EdgeInsets.all(10),
                           margin: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -126,8 +97,8 @@ class PrayerTimesScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },

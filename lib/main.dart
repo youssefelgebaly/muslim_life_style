@@ -6,7 +6,6 @@ import 'package:lottie/lottie.dart';
 import 'package:mslim_life_style/view/screen/Dau/dua_screen.dart';
 import 'package:mslim_life_style/view/screen/athkar/athkar_screen.dart';
 import 'package:mslim_life_style/view/screen/hadeeth/hadeeth_categories_screen.dart';
-import 'package:mslim_life_style/view/screen/home_screen.dart';
 import 'package:mslim_life_style/view/screen/main_page.dart';
 import 'package:mslim_life_style/view/screen/prayer_times/prayer_times_screen.dart';
 import 'package:mslim_life_style/view/screen/qibla/qibla_screen.dart';
@@ -67,7 +66,7 @@ class MyApp extends StatelessWidget {
           'HadeethCategoriesScreen': (BuildContext context) => const HadeethCategoriesScreen(),
           'QiblaScreen': (BuildContext context) =>  QiblaScreen(),
           'PrayerTimesScreen': (BuildContext context) => PrayerTimesScreen(),
-          'ZakahScreen': (BuildContext context) => ZakahScreen(),
+          'ZakahScreen': (BuildContext context) =>const ZakahScreen(),
           'QuranScreen': (BuildContext context) => QuranScreen(),
         },
         theme: ThemeData(
@@ -122,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
-        builder: (context)=> MainPage(),
+        builder: (context)=> const MainPage(),
       ),
           (route)
       {

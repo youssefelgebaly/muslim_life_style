@@ -59,7 +59,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey[300]!,
-                    offset: Offset(0.6, 1.2), //(x,y)
+                    offset: const Offset(0.6, 1.2), //(x,y)
                     blurRadius: 6.0,
                   ),
                 ],
@@ -82,7 +82,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
                     child: FittedBox(
                       child: Text(
                         '${tasbihs.tasbihs[index].reference}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -110,7 +110,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
                     children: [
                       Text(
                         '${tasbihs.tasbihs[index].count}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: primaryColor,
                         ),

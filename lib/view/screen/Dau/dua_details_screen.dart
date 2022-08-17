@@ -3,14 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:mslim_life_style/view/widgets/component.dart';
 import 'package:mslim_life_style/view/widgets/text_custom.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../../model/athkar/athkar_model.dart';
 import '../../widgets/components.dart';
 
 class DuaDetailsScreen extends StatefulWidget {
-  DuaDetailsScreen({required this.Athkar, Key? key}) : super(key: key);
-  String Athkar;
+  DuaDetailsScreen({required this.athkar, Key? key}) : super(key: key);
+  String athkar;
 
   @override
   State<DuaDetailsScreen> createState() => _DuaDetailsScreenState();
@@ -32,7 +31,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
   }
   @override
   void initState() {
-    athkarByCategory.getAthkarByCategory(widget.Athkar);
+    athkarByCategory.getAthkarByCategory(widget.athkar);
     super.initState();
   }
   @override
@@ -40,7 +39,7 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.Athkar,
+          widget.athkar,
           style: const TextStyle(
             fontSize: 20,
             fontFamily: 'Uthman',
@@ -56,8 +55,8 @@ class _DuaDetailsScreenState extends State<DuaDetailsScreen> {
         children: athkarByCategory.azkarList.map((model){
           return Container(
             width: double.infinity,
-            padding: EdgeInsets.all(15),
-            margin: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(15),

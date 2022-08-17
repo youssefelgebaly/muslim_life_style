@@ -1,24 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mslim_life_style/model/athkar/athkar.dart';
 import 'package:mslim_life_style/view/screen/Dau/dua_details_screen.dart';
-import 'package:mslim_life_style/view/widgets/athkar_card.dart';
-import 'package:mslim_life_style/view/widgets/component.dart';
-
-import '../../widgets/app_bar_custom.dart';
 class DuaScreen extends StatelessWidget {
-   DuaScreen({Key? key}) : super(key: key);
+   const DuaScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('أدعية', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
+        title: const Text('أدعية', style:  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.grey.shade50,
         elevation: 0,
       ),
-      body: ListView.builder(          physics: BouncingScrollPhysics(),
+      body: ListView.builder(          physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) => _buildListItem(context, index) ,
           itemCount: athkarDataList.length,
       ),
@@ -40,7 +35,7 @@ class DuaScreen extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey[300]!,
-            offset: Offset(0.6, 1.2), //(x,y)
+            offset: const Offset(0.6, 1.2), //(x,y)
             blurRadius: 6.0,
           ),
         ],
@@ -52,7 +47,7 @@ class DuaScreen extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => DuaDetailsScreen(
-                Athkar: athkarDataList[index].toString().trim(),
+                athkar: athkarDataList[index].toString().trim(),
               ),
             ),
           );
@@ -61,7 +56,7 @@ class DuaScreen extends StatelessWidget {
 
           children: [
              Padding(
-              padding: EdgeInsets.only(right: 18,top: 10,bottom: 10,left: 15),
+              padding: const EdgeInsets.only(right: 18,top: 10,bottom: 10,left: 15),
               child:Image.asset('assets/images/pray.png',
                 width: 60,
               ),
@@ -70,7 +65,7 @@ class DuaScreen extends StatelessWidget {
               child: Center(
                 child: Text(
                   athkarDataList[index].toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black87,
                     fontWeight: FontWeight.bold,

@@ -36,7 +36,7 @@ class _AthkarScreenState extends State<AthkarScreen> {
             backgroundColor: Colors.grey.shade50,
             elevation: 0,
           ),
-          body:  TabBarView(
+          body:  const TabBarView(
             children: [
               MorningAthkarScreen(),
               EveningAthkarScreen(),
